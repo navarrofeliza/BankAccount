@@ -6,21 +6,25 @@ class BankAccount:
         
     def deposit(self, amount):
         self.balance += amount
-        
+        return self
+    
     def withdraw(self, amount):
         if self.balance > amount:
             self.balance -= amount
         else:
             print("ERROR: Insufficient funds!")
+            return self
             
     def display_account_info(self):
         print(f"Balance is: ${self.balance}")
+        return self
         
     def yield_interest(self):
         if self.balance > 0:
             self.balance += round(self.balance*self.interest)
         else:
             print("Unable to pay interest due to lack of funds.")
+            return self
             
 aethel = BankAccount(1.2, 1400)
 connor = BankAccount(0.5, 500)
